@@ -7,14 +7,13 @@
 <style>
   body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fff; color:#333; }
   header { background: #0077cc; color: white; padding: 1em; text-align:center; }
-  main { padding: 1em; max-width: 800px; margin: auto; }
-  h1 { margin-bottom: 0.5em; }
-  .lang-select { text-align: center; margin-bottom: 2em; }
-  .lang-select button { margin: 0 0.5em; padding: 0.5em 1em; font-size: 1.1em; cursor: pointer; }
-  .menu-section { margin-bottom: 2em; }
-  .menu-section img { max-width: 100%; height: auto; border-radius: 8px; }
-  .menu-title { font-size: 1.5em; margin: 0.5em 0; }
-  .dish { margin-left: 1em; }
+  main { padding: 1em; max-width: 900px; margin: auto; }
+  .lang-select, .menu-lang { text-align: center; margin-top: 2em; }
+  .lang-select button { margin: 0 0.5em; padding: 0.7em 1.5em; font-size: 1.1em; cursor: pointer; }
+  .menu-section { margin-bottom: 2em; display: flex; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 1em; }
+  .menu-section img { max-width: 150px; max-height: 120px; border-radius: 8px; margin-right: 1em; object-fit: cover; }
+  .menu-title { font-size: 1.5em; margin: 0 0 0.5em 0; }
+  .dish { margin-left: 1em; font-size: 1.1em; text-align: left; }
   .hidden { display: none; }
 </style>
 </head>
@@ -24,73 +23,92 @@
   <h1>Ementa Digital / Digital Menu</h1>
 </header>
 
-<div class="lang-select">
-  <button onclick="showMenu('pt')">Português 🇵🇹</button>
-  <button onclick="showMenu('en')">English 🇬🇧</button>
+<div id="lang-container" class="lang-select">
+  <p><strong>Selecione o idioma / Select language</strong></p>
+  <button onclick="selectLanguage('pt')">Português 🇵🇹</button>
+  <button onclick="selectLanguage('en')">English 🇬🇧</button>
 </div>
 
 <main>
   <!-- PT -->
-  <div id="menu-pt" class="menu-lang">
+  <div id="menu-pt" class="menu-lang hidden" style="text-align: left;">
     <section class="menu-section">
-      <h2 class="menu-title">Pequeno-almoço</h2>
       <img src="breakfast.jpg" alt="Pequeno-almoço" />
-      <div class="dish">Tosta Mista - €3,50</div>
-      <div class="dish">Sumo Natural - €2,00</div>
+      <div>
+        <h2 class="menu-title">Pequeno-almoço</h2>
+        <div class="dish">Tosta Mista - €3,50</div>
+        <div class="dish">Sumo Natural - €2,00</div>
+      </div>
     </section>
     <section class="menu-section">
-      <h2 class="menu-title">Almoço</h2>
       <img src="lunch.jpg" alt="Almoço" />
-      <div class="dish">Frango Assado - €7,50</div>
-      <div class="dish">Arroz de Legumes - €6,00</div>
+      <div>
+        <h2 class="menu-title">Almoço</h2>
+        <div class="dish">Frango Assado - €7,50</div>
+        <div class="dish">Arroz de Legumes - €6,00</div>
+      </div>
     </section>
     <section class="menu-section">
-      <h2 class="menu-title">Lanche</h2>
       <img src="snack.jpg" alt="Lanche" />
-      <div class="dish">Pão com Chouriço - €2,50</div>
-      <div class="dish">Café com Leite - €1,50</div>
+      <div>
+        <h2 class="menu-title">Lanche</h2>
+        <div class="dish">Pão com Chouriço - €2,50</div>
+        <div class="dish">Café com Leite - €1,50</div>
+      </div>
     </section>
     <section class="menu-section">
-      <h2 class="menu-title">Jantar</h2>
       <img src="dinner.jpg" alt="Jantar" />
-      <div class="dish">Bacalhau à Brás - €9,50</div>
-      <div class="dish">Sopa do Dia - €3,00</div>
+      <div>
+        <h2 class="menu-title">Jantar</h2>
+        <div class="dish">Bacalhau à Brás - €9,50</div>
+        <div class="dish">Sopa do Dia - €3,00</div>
+      </div>
     </section>
   </div>
 
   <!-- EN -->
-  <div id="menu-en" class="menu-lang hidden">
+  <div id="menu-en" class="menu-lang hidden" style="text-align: left;">
     <section class="menu-section">
-      <h2 class="menu-title">Breakfast</h2>
       <img src="breakfast.jpg" alt="Breakfast" />
-      <div class="dish">Toast with Cheese & Ham - €3.50</div>
-      <div class="dish">Fresh Juice - €2.00</div>
+      <div>
+        <h2 class="menu-title">Breakfast</h2>
+        <div class="dish">Toast with Cheese & Ham - €3.50</div>
+        <div class="dish">Fresh Juice - €2.00</div>
+      </div>
     </section>
     <section class="menu-section">
-      <h2 class="menu-title">Lunch</h2>
       <img src="lunch.jpg" alt="Lunch" />
-      <div class="dish">Roast Chicken - €7.50</div>
-      <div class="dish">Vegetable Rice - €6.00</div>
+      <div>
+        <h2 class="menu-title">Lunch</h2>
+        <div class="dish">Roast Chicken - €7.50</div>
+        <div class="dish">Vegetable Rice - €6.00</div>
+      </div>
     </section>
     <section class="menu-section">
-      <h2 class="menu-title">Snack</h2>
       <img src="snack.jpg" alt="Snack" />
-      <div class="dish">Bread with Chouriço - €2.50</div>
-      <div class="dish">Coffee with Milk - €1.50</div>
+      <div>
+        <h2 class="menu-title">Snack</h2>
+        <div class="dish">Bread with Chouriço - €2.50</div>
+        <div class="dish">Coffee with Milk - €1.50</div>
+      </div>
     </section>
     <section class="menu-section">
-      <h2 class="menu-title">Dinner</h2>
       <img src="dinner.jpg" alt="Dinner" />
-      <div class="dish">Codfish à Brás - €9.50</div>
-      <div class="dish">Soup of the Day - €3.00</div>
+      <div>
+        <h2 class="menu-title">Dinner</h2>
+        <div class="dish">Codfish à Brás - €9.50</div>
+        <div class="dish">Soup of the Day - €3.00</div>
+      </div>
     </section>
   </div>
 </main>
 
 <script>
-function showMenu(lang) {
-  document.getElementById('menu-pt').classList.add('hidden');
-  document.getElementById('menu-en').classList.add('hidden');
+function selectLanguage(lang) {
+  // Esconder seleção de idioma
+  document.getElementById('lang-container').classList.add('hidden');
+  
+  // Mostrar menu conforme idioma selecionado
   if (lang === 'pt') {
     document.getElementById('menu-pt').classList.remove('hidden');
   } else if (lang === 'en') {
