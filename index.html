@@ -1,121 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ementa Digital - Exemplo</title>
-<style>
-  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fff; color:#333; }
-  header { background: #0077cc; color: white; padding: 1em; text-align:center; }
-  main { padding: 1em; max-width: 900px; margin: auto; }
-  .lang-select, .menu-lang { text-align: center; margin-top: 2em; }
-  .lang-select button { margin: 0 0.5em; padding: 0.7em 1.5em; font-size: 1.1em; cursor: pointer; }
-  .menu-section { margin-bottom: 2em; display: flex; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 1em; }
-  .menu-section img { max-width: 150px; max-height: 120px; border-radius: 8px; margin-right: 1em; object-fit: cover; }
-  .menu-title { font-size: 1.5em; margin: 0 0 0.5em 0; }
-  .dish { margin-left: 1em; font-size: 1.1em; text-align: left; }
-  .hidden { display: none; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pastelaria Esplanada - Ementa Digital</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fff; color:#333; }
+    header { background: #0077cc; color: white; padding: 1em; text-align:center; }
+    main { padding: 2em; text-align: center; }
+    .section { display: none; }
+    .visible { display: block; }
+    button { margin: 1em; padding: 1em 2em; font-size: 1.1em; cursor: pointer; }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Pastelaria Esplanada - Ementa Digital</h1>
+  </header>
+  <main>
+    <!-- Escolha de idioma -->
+    <div id="lang-select" class="section visible">
+      <p><strong>Selecione o idioma / Select language</strong></p>
+      <button onclick="selectLanguage('pt')">Português 🇵🇹</button>
+      <button onclick="selectLanguage('en')">English 🇬🇧</button>
+    </div>
 
-<header>
-  <h1>Pastelaria Esplanada - Ementa Digital</h1>
-</header>
+    <!-- Escolha do menu -->
+    <div id="menu-select-pt" class="section">
+      <p><strong>Escolha o menu</strong></p>
+      <button onclick="showSection('pt-breakfast')">Pequeno-Almoço</button>
+      <button onclick="showSection('pt-lunch')">Almoço</button>
+      <button onclick="showSection('pt-snack')">Lanche</button>
+      <button onclick="showSection('pt-dinner')">Jantar</button>
+      <br><button onclick="goBackToLang()">⬅ Voltar</button>
+    </div>
 
-<div id="lang-container" class="lang-select">
-  <p><strong>Selecione o idioma / Select language</strong></p>
-  <button onclick="selectLanguage('pt')">Português 🇵🇹</button>
-  <button onclick="selectLanguage('en')">English 🇬🇧</button>
-</div>
+    <div id="menu-select-en" class="section">
+      <p><strong>Select a menu</strong></p>
+      <button onclick="showSection('en-breakfast')">Breakfast</button>
+      <button onclick="showSection('en-lunch')">Lunch</button>
+      <button onclick="showSection('en-snack')">Snack</button>
+      <button onclick="showSection('en-dinner')">Dinner</button>
+      <br><button onclick="goBackToLang()">⬅ Back</button>
+    </div>
 
-<main>
-  <!-- PT -->
-  <div id="menu-pt" class="menu-lang hidden" style="text-align: left;">
-    <section class="menu-section">
-      <img src="breakfast.jpg" alt="Pequeno-almoço" />
-      <div>
-        <h2 class="menu-title">Pequeno-almoço</h2>
-        <div class="dish">Tosta Mista - €3,50</div>
-        <div class="dish">Sumo Natural - €2,00</div>
-      </div>
-    </section>
-    <section class="menu-section">
-      <img src="lunch.jpg" alt="Almoço" />
-      <div>
-        <h2 class="menu-title">Almoço</h2>
-        <div class="dish">Frango Assado - €7,50</div>
-        <div class="dish">Arroz de Legumes - €6,00</div>
-      </div>
-    </section>
-    <section class="menu-section">
-      <img src="snack.jpg" alt="Lanche" />
-      <div>
-        <h2 class="menu-title">Lanche</h2>
-        <div class="dish">Pão com Chouriço - €2,50</div>
-        <div class="dish">Café com Leite - €1,50</div>
-      </div>
-    </section>
-    <section class="menu-section">
-      <img src="dinner.jpg" alt="Jantar" />
-      <div>
-        <h2 class="menu-title">Jantar</h2>
-        <div class="dish">Bacalhau à Brás - €9,50</div>
-        <div class="dish">Sopa do Dia - €3,00</div>
-      </div>
-    </section>
-  </div>
+    <!-- Menus PT -->
+    <div id="pt-breakfast" class="section">
+      <h2>Pequeno-Almoço</h2>
+      <p>Café, sumo de laranja natural, croissant ou torrada com manteiga ou compota.</p>
+      <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
+    </div>
+    <div id="pt-lunch" class="section">
+      <h2>Almoço</h2>
+      <p>Prato do dia (carne ou peixe), bebida (água ou copo de vinho), sobremesa e café.</p>
+      <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
+    </div>
+    <div id="pt-snack" class="section">
+      <h2>Lanche</h2>
+      <p>Tosta mista ou bolo caseiro, sumo natural ou chá.</p>
+      <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
+    </div>
+    <div id="pt-dinner" class="section">
+      <h2>Jantar</h2>
+      <p>Sopa, prato principal à escolha, bebida, sobremesa e café.</p>
+      <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
+    </div>
 
-  <!-- EN -->
-  <div id="menu-en" class="menu-lang hidden" style="text-align: left;">
-    <section class="menu-section">
-      <img src="breakfast.jpg" alt="Breakfast" />
-      <div>
-        <h2 class="menu-title">Breakfast</h2>
-        <div class="dish">Toast with Cheese & Ham - €3.50</div>
-        <div class="dish">Fresh Juice - €2.00</div>
-      </div>
-    </section>
-    <section class="menu-section">
-      <img src="lunch.jpg" alt="Lunch" />
-      <div>
-        <h2 class="menu-title">Lunch</h2>
-        <div class="dish">Roast Chicken - €7.50</div>
-        <div class="dish">Vegetable Rice - €6.00</div>
-      </div>
-    </section>
-    <section class="menu-section">
-      <img src="snack.jpg" alt="Snack" />
-      <div>
-        <h2 class="menu-title">Snack</h2>
-        <div class="dish">Bread with Chouriço - €2.50</div>
-        <div class="dish">Coffee with Milk - €1.50</div>
-      </div>
-    </section>
-    <section class="menu-section">
-      <img src="dinner.jpg" alt="Dinner" />
-      <div>
-        <h2 class="menu-title">Dinner</h2>
-        <div class="dish">Codfish à Brás - €9.50</div>
-        <div class="dish">Soup of the Day - €3.00</div>
-      </div>
-    </section>
-  </div>
-</main>
+    <!-- Menus EN -->
+    <div id="en-breakfast" class="section">
+      <h2>Breakfast</h2>
+      <p>Coffee, fresh orange juice, croissant or toast with butter or jam.</p>
+      <button onclick="showSection('menu-select-en')">⬅ Back</button>
+    </div>
+    <div id="en-lunch" class="section">
+      <h2>Lunch</h2>
+      <p>Dish of the day (meat or fish), drink (water or glass of wine), dessert and coffee.</p>
+      <button onclick="showSection('menu-select-en')">⬅ Back</button>
+    </div>
+    <div id="en-snack" class="section">
+      <h2>Snack</h2>
+      <p>Toasted sandwich or homemade cake, fresh juice or tea.</p>
+      <button onclick="showSection('menu-select-en')">⬅ Back</button>
+    </div>
+    <div id="en-dinner" class="section">
+      <h2>Dinner</h2>
+      <p>Soup, main course of choice, drink, dessert and coffee.</p>
+      <button onclick="showSection('menu-select-en')">⬅ Back</button>
+    </div>
+  </main>
 
-<script>
-function selectLanguage(lang) {
-  // Esconder seleção de idioma
-  document.getElementById('lang-container').classList.add('hidden');
-  
-  // Mostrar menu conforme idioma selecionado
-  if (lang === 'pt') {
-    document.getElementById('menu-pt').classList.remove('hidden');
-  } else if (lang === 'en') {
-    document.getElementById('menu-en').classList.remove('hidden');
-  }
-}
-</script>
+  <script>
+    function hideAll() {
+      document.querySelectorAll('.section').forEach(el => el.classList.remove('visible'));
+    }
 
+    function selectLanguage(lang) {
+      hideAll();
+      if (lang === 'pt') {
+        document.getElementById('menu-select-pt').classList.add('visible');
+      } else {
+        document.getElementById('menu-select-en').classList.add('visible');
+      }
+    }
+
+    function showSection(id) {
+      hideAll();
+      document.getElementById(id).classList.add('visible');
+    }
+
+    function goBackToLang() {
+      hideAll();
+      document.getElementById('lang-select').classList.add('visible');
+    }
+  </script>
 </body>
 </html>
