@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-  <header><h1>Pastelaria Esplanada</h1></header>
+  <header><h1>Pastelaria Esplanada - Ementa Digital</h1></header>
   <main>
     <!-- 1. Escolha de idioma -->
     <div id="lang-select" class="section visible">
@@ -27,6 +27,11 @@
       <button onclick="selectLanguage('en')">English 🇬🇧</button>
     </div>
 
+    <!-- Rodapé temporário na escolha de idioma -->
+    <footer id="footer-welcome" class="visible">
+      <p>Bem-Vindo</p>
+    </footer>
+
     <!-- 2. Escolha de menu PT -->
     <div id="menu-select-pt" class="section">
       <p><strong>Escolha o menu</strong></p>
@@ -34,6 +39,7 @@
       <button onclick="showSection('pt-lunch')">Almoço</button>
       <button onclick="showSection('pt-snack')">Lanche</button>
       <button onclick="showSection('pt-dinner')">Jantar</button>
+      <button onclick="showSection('pt-dish')">Prato do Dia</button>
       <div class="navigation"><button onclick="goBackToLang()">⬅ Voltar</button></div>
     </div>
 
@@ -44,85 +50,23 @@
       <button onclick="showSection('en-lunch')">Lunch</button>
       <button onclick="showSection('en-snack')">Snack</button>
       <button onclick="showSection('en-dinner')">Dinner</button>
+      <button onclick="showSection('en-dish')">Dish of the Day</button>
       <div class="navigation"><button onclick="goBackToLang()">⬅ Back</button></div>
     </div>
 
-    <!-- 4. Menu sections with images, exit & back -->
-    <div id="pt-breakfast" class="section">
-      <img src="breakfast.jpg" alt="Pequeno‑Almoço">
-      <h2>Pequeno‑Almoço</h2>
-      <p>Café, sumo de laranja natural, croissant ou torrada com manteiga ou compota.</p>
+    <!-- 4. Menu Prato do Dia (PT/EN) -->
+    <div id="pt-dish" class="section">
+      <h2>Prato do Dia</h2>
+      <p>Arroz de Polvo à Esplanada – €9,50</p>
       <div class="navigation">
         <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
         <button onclick="sayGoodbye()">Sair</button>
       </div>
     </div>
 
-    <div id="pt-lunch" class="section">
-      <img src="lunch.jpg" alt="Almoço">
-      <h2>Almoço</h2>
-      <p>Prato do dia (carne ou peixe), bebida (água ou copo de vinho), sobremesa e café.</p>
-      <div class="navigation">
-        <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
-        <button onclick="sayGoodbye()">Sair</button>
-      </div>
-    </div>
-
-    <div id="pt-snack" class="section">
-      <img src="snack.jpg" alt="Lanche">
-      <h2>Lanche</h2>
-      <p>Tosta mista ou bolo caseiro, sumo natural ou chá.</p>
-      <div class="navigation">
-        <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
-        <button onclick="sayGoodbye()">Sair</button>
-      </div>
-    </div>
-
-    <div id="pt-dinner" class="section">
-      <img src="dinner.jpg" alt="Jantar">
-      <h2>Jantar</h2>
-      <p>Sopa, prato principal à escolha, bebida, sobremesa e café.</p>
-      <div class="navigation">
-        <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
-        <button onclick="sayGoodbye()">Sair</button>
-      </div>
-    </div>
-
-    <!-- EN versions -->
-    <div id="en-breakfast" class="section">
-      <img src="breakfast.jpg" alt="Breakfast">
-      <h2>Breakfast</h2>
-      <p>Coffee, fresh orange juice, croissant or toast with butter or jam.</p>
-      <div class="navigation">
-        <button onclick="showSection('menu-select-en')">⬅ Back</button>
-        <button onclick="sayGoodbye()">Exit</button>
-      </div>
-    </div>
-
-    <div id="en-lunch" class="section">
-      <img src="lunch.jpg" alt="Lunch">
-      <h2>Lunch</h2>
-      <p>Dish of the day (meat or fish), drink (water or glass of wine), dessert and coffee.</p>
-      <div class="navigation">
-        <button onclick="showSection('menu-select-en')">⬅ Back</button>
-        <button onclick="sayGoodbye()">Exit</button>
-      </div>
-    </div>
-
-    <div id="en-snack" class="section">
-      <img src="snack.jpg" alt="Snack">
-      <h2>Snack</h2>
-      <p>Toasted sandwich or homemade cake, fresh juice or tea.</p>
-      <div class="navigation">
-        <button onclick="showSection('menu-select-en')">⬅ Back</button>
-        <button onclick="sayGoodbye()">Exit</button>
-      </div>
-    </div>
-
-    <div id="en-dinner" class="section">
-      <img src="dinner.jpg" alt="Dinner">
-      <h2>Dinner</h2>
-      <p>Soup, main course of choice, drink, dessert and coffee.</p>
+    <div id="en-dish" class="section">
+      <h2>Dish of the Day</h2>
+      <p>Octopus Rice à Esplanada – €9.50</p>
       <div class="navigation">
         <button onclick="showSection('menu-select-en')">⬅ Back</button>
         <button onclick="sayGoodbye()">Exit</button>
@@ -140,7 +84,6 @@
       <p>📍 Praça Mercado 17, 7540‑135 Santiago do Cacém</p>
       <p>📞 <a href="tel:+351269822581">269 822 581</a> | 📱 <a href="https://wa.me/351912345678">WhatsApp 912 345 678</a></p>
       <p>Siga-nos: <a href="#" target="_blank">Instagram</a> | <a href="#" target="_blank">Facebook</a></p>
-      <p><strong>Prato do dia:</strong> Arroz de Polvo à Esplanada – €9,50</p>
       <p><em>"Bom apetite – servimos com carinho!"</em></p>
       <button onclick="showAllergen()">⚠️ Informação sobre alergénios</button>
       <div id="allergen-info">
@@ -150,16 +93,34 @@
     </div>
   </main>
 
-  <footer>
-    <p>Pastelaria Esplanada – Até breve!</p>
+  <footer id="footer-final" style="display:none;">
+    <p>Até breve</p>
   </footer>
 
   <script>
-    function hideAll(){document.querySelectorAll('.section').forEach(e=>e.classList.remove('visible'))}
-    function selectLanguage(l){hideAll();document.getElementById(l==='pt'?'menu-select-pt':'menu-select-en').classList.add('visible')}
-    function showSection(id){hideAll();document.getElementById(id).classList.add('visible')}
-    function goBackToLang(){hideAll();document.getElementById('lang-select').classList.add('visible')}
-    function sayGoodbye(){hideAll();document.getElementById('goodbye').classList.add('visible')}
+    function hideAll(){
+      document.querySelectorAll('.section').forEach(e=>e.classList.remove('visible'));
+      document.getElementById('footer-welcome').style.display = 'none';
+      document.getElementById('footer-final').style.display = 'none';
+    }
+    function selectLanguage(l){
+      hideAll();
+      document.getElementById(l==='pt'?'menu-select-pt':'menu-select-en').classList.add('visible');
+    }
+    function showSection(id){
+      hideAll();
+      document.getElementById(id).classList.add('visible');
+    }
+    function goBackToLang(){
+      hideAll();
+      document.getElementById('lang-select').classList.add('visible');
+      document.getElementById('footer-welcome').style.display = 'block';
+    }
+    function sayGoodbye(){
+      hideAll();
+      document.getElementById('goodbye').classList.add('visible');
+      document.getElementById('footer-final').style.display = 'block';
+    }
     function showAllergen(){document.getElementById('allergen-info').style.display='block'}
     function hideAllergen(){document.getElementById('allergen-info').style.display='none'}
   </script>
