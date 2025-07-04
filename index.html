@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Pastelaria Esplanada - Ementa Digital</title>
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fff; color:#333; }
-    header { background: #0077cc; color: white; padding: 1em; text-align:center; }
-    main { padding: 2em; text-align: center; }
-    .section { display: none; }
-    .visible { display: block; }
-    img { max-width: 80%; height: auto; border-radius: 8px; margin-bottom: 1em; }
-    button { margin: .5em; padding: .8em 1.5em; font-size: 1.1em; cursor: pointer; }
-    .navigation { margin-top: 1.5em; }
+    body { font-family: Arial,sans-serif; margin:0;padding:0;background:#fff;color:#333; }
+    header { background:#0077cc;color:white;padding:1em;text-align:center; }
+    footer { background:#f0f0f0;padding:1em;text-align:center;font-size:0.9em;color:#555; }
+    main { padding:1.5em;text-align:center; }
+    .section { display:none; }
+    .visible { display:block; }
+    img{max-width:80%;height:auto;border-radius:8px;margin-bottom:1em;}
+    button{margin:.5em;padding:.8em 1.5em;font-size:1.05em;cursor:pointer;}
+    .navigation{margin-top:1.5em;}
+    #allergen-info{display:none;background:#fff;padding:1em;margin:1em auto;border:1px solid #ccc;border-radius:8px;max-width:600px;}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Pastelaria Esplanada - Ementa Digital</h1>
-  </header>
+  <header><h1>Pastelaria Esplanada</h1></header>
   <main>
     <!-- 1. Escolha de idioma -->
     <div id="lang-select" class="section visible">
@@ -27,34 +27,30 @@
       <button onclick="selectLanguage('en')">English 🇬🇧</button>
     </div>
 
-    <!-- 2. Escolha de menu em PT -->
+    <!-- 2. Escolha de menu PT -->
     <div id="menu-select-pt" class="section">
       <p><strong>Escolha o menu</strong></p>
-      <button onclick="showSection('pt-breakfast')">Pequeno-Almoço</button>
+      <button onclick="showSection('pt-breakfast')">Pequeno‑Almoço</button>
       <button onclick="showSection('pt-lunch')">Almoço</button>
       <button onclick="showSection('pt-snack')">Lanche</button>
       <button onclick="showSection('pt-dinner')">Jantar</button>
-      <div class="navigation">
-        <button onclick="goBackToLang()">⬅ Voltar</button>
-      </div>
+      <div class="navigation"><button onclick="goBackToLang()">⬅ Voltar</button></div>
     </div>
 
-    <!-- 3. Escolha de menu em EN -->
+    <!-- 3. Escolha de menu EN -->
     <div id="menu-select-en" class="section">
       <p><strong>Select a menu</strong></p>
       <button onclick="showSection('en-breakfast')">Breakfast</button>
       <button onclick="showSection('en-lunch')">Lunch</button>
       <button onclick="showSection('en-snack')">Snack</button>
       <button onclick="showSection('en-dinner')">Dinner</button>
-      <div class="navigation">
-        <button onclick="goBackToLang()">⬅ Back</button>
-      </div>
+      <div class="navigation"><button onclick="goBackToLang()">⬅ Back</button></div>
     </div>
 
-    <!-- 4. Secções de menu (PT e EN) com imagens e botão Sair -->
+    <!-- 4. Menu sections with images, exit & back -->
     <div id="pt-breakfast" class="section">
-      <img src="breakfast.jpg" alt="Pequeno-Almoço">
-      <h2>Pequeno-Almoço</h2>
+      <img src="breakfast.jpg" alt="Pequeno‑Almoço">
+      <h2>Pequeno‑Almoço</h2>
       <p>Café, sumo de laranja natural, croissant ou torrada com manteiga ou compota.</p>
       <div class="navigation">
         <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
@@ -92,7 +88,7 @@
       </div>
     </div>
 
-    <!-- Versões em Inglês -->
+    <!-- EN versions -->
     <div id="en-breakfast" class="section">
       <img src="breakfast.jpg" alt="Breakfast">
       <h2>Breakfast</h2>
@@ -133,34 +129,39 @@
       </div>
     </div>
 
-    <!-- Página de despedida -->
+    <!-- 5. Goodbye section -->
     <div id="goodbye" class="section">
       <h2>Obrigado pela visita! / Thanks for visiting!</h2>
       <p>Esperamos vê-lo em breve. / We hope to see you soon.</p>
-      <button onclick="goBackToLang()">↻ Nova Consulta</button>
+      <button onclick="goBackToLang()">↻ Nova Consulta / New Visit</button>
+      <hr>
+      <h3>Informações úteis</h3>
+      <p><strong>Horário:</strong> Seg–Dom, 07h–20h</p>
+      <p>📍 Praça Mercado 17, 7540‑135 Santiago do Cacém</p>
+      <p>📞 <a href="tel:+351269822581">269 822 581</a> | 📱 <a href="https://wa.me/351912345678">WhatsApp 912 345 678</a></p>
+      <p>Siga-nos: <a href="#" target="_blank">Instagram</a> | <a href="#" target="_blank">Facebook</a></p>
+      <p><strong>Prato do dia:</strong> Arroz de Polvo à Esplanada – €9,50</p>
+      <p><em>"Bom apetite – servimos com carinho!"</em></p>
+      <button onclick="showAllergen()">⚠️ Informação sobre alergénios</button>
+      <div id="allergen-info">
+        <p><strong>Alergénios presentes:</strong> Glúten, ovos, leite, frutos de casca rija, soja, peixe, moluscos, crustáceos, aipo, mostarda, sementes de sésamo e dióxido de enxofre.</p>
+        <button onclick="hideAllergen()">Fechar</button>
+      </div>
     </div>
   </main>
 
+  <footer>
+    <p>Pastelaria Esplanada – Até breve!</p>
+  </footer>
+
   <script>
-    function hideAll() {
-      document.querySelectorAll('.section').forEach(el => el.classList.remove('visible'));
-    }
-    function selectLanguage(lang) {
-      hideAll();
-      document.getElementById(lang === 'pt' ? 'menu-select-pt' : 'menu-select-en').classList.add('visible');
-    }
-    function showSection(id) {
-      hideAll();
-      document.getElementById(id).classList.add('visible');
-    }
-    function goBackToLang() {
-      hideAll();
-      document.getElementById('lang-select').classList.add('visible');
-    }
-    function sayGoodbye() {
-      hideAll();
-      document.getElementById('goodbye').classList.add('visible');
-    }
+    function hideAll(){document.querySelectorAll('.section').forEach(e=>e.classList.remove('visible'))}
+    function selectLanguage(l){hideAll();document.getElementById(l==='pt'?'menu-select-pt':'menu-select-en').classList.add('visible')}
+    function showSection(id){hideAll();document.getElementById(id).classList.add('visible')}
+    function goBackToLang(){hideAll();document.getElementById('lang-select').classList.add('visible')}
+    function sayGoodbye(){hideAll();document.getElementById('goodbye').classList.add('visible')}
+    function showAllergen(){document.getElementById('allergen-info').style.display='block'}
+    function hideAllergen(){document.getElementById('allergen-info').style.display='none'}
   </script>
 </body>
 </html>
