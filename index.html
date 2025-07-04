@@ -10,7 +10,9 @@
     main { padding: 2em; text-align: center; }
     .section { display: none; }
     .visible { display: block; }
-    button { margin: 1em; padding: 1em 2em; font-size: 1.1em; cursor: pointer; }
+    img { max-width: 80%; height: auto; border-radius: 8px; margin-bottom: 1em; }
+    button { margin: .5em; padding: .8em 1.5em; font-size: 1.1em; cursor: pointer; }
+    .navigation { margin-top: 1.5em; }
   </style>
 </head>
 <body>
@@ -18,74 +20,124 @@
     <h1>Pastelaria Esplanada - Ementa Digital</h1>
   </header>
   <main>
-    <!-- Escolha de idioma -->
+    <!-- 1. Escolha de idioma -->
     <div id="lang-select" class="section visible">
       <p><strong>Selecione o idioma / Select language</strong></p>
       <button onclick="selectLanguage('pt')">Português 🇵🇹</button>
       <button onclick="selectLanguage('en')">English 🇬🇧</button>
     </div>
 
-    <!-- Escolha do menu -->
+    <!-- 2. Escolha de menu em PT -->
     <div id="menu-select-pt" class="section">
       <p><strong>Escolha o menu</strong></p>
       <button onclick="showSection('pt-breakfast')">Pequeno-Almoço</button>
       <button onclick="showSection('pt-lunch')">Almoço</button>
       <button onclick="showSection('pt-snack')">Lanche</button>
       <button onclick="showSection('pt-dinner')">Jantar</button>
-      <br><button onclick="goBackToLang()">⬅ Voltar</button>
+      <div class="navigation">
+        <button onclick="goBackToLang()">⬅ Voltar</button>
+      </div>
     </div>
 
+    <!-- 3. Escolha de menu em EN -->
     <div id="menu-select-en" class="section">
       <p><strong>Select a menu</strong></p>
       <button onclick="showSection('en-breakfast')">Breakfast</button>
       <button onclick="showSection('en-lunch')">Lunch</button>
       <button onclick="showSection('en-snack')">Snack</button>
       <button onclick="showSection('en-dinner')">Dinner</button>
-      <br><button onclick="goBackToLang()">⬅ Back</button>
+      <div class="navigation">
+        <button onclick="goBackToLang()">⬅ Back</button>
+      </div>
     </div>
 
-    <!-- Menus PT -->
+    <!-- 4. Secções de menu (PT e EN) com imagens e botão Sair -->
     <div id="pt-breakfast" class="section">
+      <img src="breakfast.jpg" alt="Pequeno-Almoço">
       <h2>Pequeno-Almoço</h2>
       <p>Café, sumo de laranja natural, croissant ou torrada com manteiga ou compota.</p>
-      <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
-    </div>
-    <div id="pt-lunch" class="section">
-      <h2>Almoço</h2>
-      <p>Prato do dia (carne ou peixe), bebida (água ou copo de vinho), sobremesa e café.</p>
-      <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
-    </div>
-    <div id="pt-snack" class="section">
-      <h2>Lanche</h2>
-      <p>Tosta mista ou bolo caseiro, sumo natural ou chá.</p>
-      <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
-    </div>
-    <div id="pt-dinner" class="section">
-      <h2>Jantar</h2>
-      <p>Sopa, prato principal à escolha, bebida, sobremesa e café.</p>
-      <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
+      <div class="navigation">
+        <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
+        <button onclick="sayGoodbye()">Sair</button>
+      </div>
     </div>
 
-    <!-- Menus EN -->
+    <div id="pt-lunch" class="section">
+      <img src="lunch.jpg" alt="Almoço">
+      <h2>Almoço</h2>
+      <p>Prato do dia (carne ou peixe), bebida (água ou copo de vinho), sobremesa e café.</p>
+      <div class="navigation">
+        <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
+        <button onclick="sayGoodbye()">Sair</button>
+      </div>
+    </div>
+
+    <div id="pt-snack" class="section">
+      <img src="snack.jpg" alt="Lanche">
+      <h2>Lanche</h2>
+      <p>Tosta mista ou bolo caseiro, sumo natural ou chá.</p>
+      <div class="navigation">
+        <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
+        <button onclick="sayGoodbye()">Sair</button>
+      </div>
+    </div>
+
+    <div id="pt-dinner" class="section">
+      <img src="dinner.jpg" alt="Jantar">
+      <h2>Jantar</h2>
+      <p>Sopa, prato principal à escolha, bebida, sobremesa e café.</p>
+      <div class="navigation">
+        <button onclick="showSection('menu-select-pt')">⬅ Voltar</button>
+        <button onclick="sayGoodbye()">Sair</button>
+      </div>
+    </div>
+
+    <!-- Versões em Inglês -->
     <div id="en-breakfast" class="section">
+      <img src="breakfast.jpg" alt="Breakfast">
       <h2>Breakfast</h2>
       <p>Coffee, fresh orange juice, croissant or toast with butter or jam.</p>
-      <button onclick="showSection('menu-select-en')">⬅ Back</button>
+      <div class="navigation">
+        <button onclick="showSection('menu-select-en')">⬅ Back</button>
+        <button onclick="sayGoodbye()">Exit</button>
+      </div>
     </div>
+
     <div id="en-lunch" class="section">
+      <img src="lunch.jpg" alt="Lunch">
       <h2>Lunch</h2>
       <p>Dish of the day (meat or fish), drink (water or glass of wine), dessert and coffee.</p>
-      <button onclick="showSection('menu-select-en')">⬅ Back</button>
+      <div class="navigation">
+        <button onclick="showSection('menu-select-en')">⬅ Back</button>
+        <button onclick="sayGoodbye()">Exit</button>
+      </div>
     </div>
+
     <div id="en-snack" class="section">
+      <img src="snack.jpg" alt="Snack">
       <h2>Snack</h2>
       <p>Toasted sandwich or homemade cake, fresh juice or tea.</p>
-      <button onclick="showSection('menu-select-en')">⬅ Back</button>
+      <div class="navigation">
+        <button onclick="showSection('menu-select-en')">⬅ Back</button>
+        <button onclick="sayGoodbye()">Exit</button>
+      </div>
     </div>
+
     <div id="en-dinner" class="section">
+      <img src="dinner.jpg" alt="Dinner">
       <h2>Dinner</h2>
       <p>Soup, main course of choice, drink, dessert and coffee.</p>
-      <button onclick="showSection('menu-select-en')">⬅ Back</button>
+      <div class="navigation">
+        <button onclick="showSection('menu-select-en')">⬅ Back</button>
+        <button onclick="sayGoodbye()">Exit</button>
+      </div>
+    </div>
+
+    <!-- Página de despedida -->
+    <div id="goodbye" class="section">
+      <h2>Obrigado pela visita! / Thanks for visiting!</h2>
+      <p>Esperamos vê-lo em breve. / We hope to see you soon.</p>
+      <button onclick="goBackToLang()">↻ Nova Consulta</button>
     </div>
   </main>
 
@@ -93,24 +145,21 @@
     function hideAll() {
       document.querySelectorAll('.section').forEach(el => el.classList.remove('visible'));
     }
-
     function selectLanguage(lang) {
       hideAll();
-      if (lang === 'pt') {
-        document.getElementById('menu-select-pt').classList.add('visible');
-      } else {
-        document.getElementById('menu-select-en').classList.add('visible');
-      }
+      document.getElementById(lang === 'pt' ? 'menu-select-pt' : 'menu-select-en').classList.add('visible');
     }
-
     function showSection(id) {
       hideAll();
       document.getElementById(id).classList.add('visible');
     }
-
     function goBackToLang() {
       hideAll();
       document.getElementById('lang-select').classList.add('visible');
+    }
+    function sayGoodbye() {
+      hideAll();
+      document.getElementById('goodbye').classList.add('visible');
     }
   </script>
 </body>
